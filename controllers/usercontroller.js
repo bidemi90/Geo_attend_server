@@ -168,6 +168,7 @@ const createAttendance = async (req, res) => {
       creatorName,
       creatorID,
       creationTime,
+      location_name,
       location_lat,
       location_lng,
     } = req.body;
@@ -180,6 +181,7 @@ const createAttendance = async (req, res) => {
       creatorId: creatorID,
       creatorName,
       classSection,
+      location_name,
       location_lat,
       location_lng,
       duration: `${duration} minutes`, // store as "X minutes"

@@ -22,6 +22,10 @@ const AttendanceSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    location_name: {
+      type: String,
+      required: true,
+    },
     location_lat: {
       type: Number,
       required: true,
