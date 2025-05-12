@@ -165,13 +165,16 @@ const createAttendance = async (req, res) => {
     const {
       classSection,
       duration,
+      classRange,
+      attendanceType,
       creatorName,
       creatorID,
-      creationTime,
-      location_name,
       location_lat,
       location_lng,
+      location_name,
     } = req.body;
+
+  
 
     // Generate a unique 8-character code
     const code = crypto.randomBytes(6).toString("hex").slice(0, 8);
@@ -185,6 +188,8 @@ const createAttendance = async (req, res) => {
       location_lat,
       location_lng,
       duration: `${duration} minutes`, // store as "X minutes"
+      classRange,
+      attendanceType,
       code,
     });
 
@@ -260,7 +265,7 @@ const getAttendanceByCode = async (req, res) => {
 
 // controllers/markAttendanceController.js
 const markAttendance = async (req, res) => {
-  const { fullName, matric_number, email, code, timestamp } = req.body;
+  const { fullName, matric_number, email, code, timestamp,location_name } = req.body;
 
   if (!fullName || !matric_number || !code) {
     return res.status(400).json({
@@ -299,6 +304,7 @@ const markAttendance = async (req, res) => {
       matricNumber: matric_number,
       email,
       timestamp: markTime,
+      location_name:location_name
     });
 
     await attendance.save();

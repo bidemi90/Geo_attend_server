@@ -22,6 +22,18 @@ const AttendanceSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    duration: {
+      type: String, // Example: "45 minutes"
+      required: true,
+    },
+    classRange: {
+      type: Number,
+      required: true,
+    },
+    attendanceType: {
+      type: String,
+      required: true,
+    },
     location_name: {
       type: String,
       required: true,
@@ -34,10 +46,7 @@ const AttendanceSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    duration: {
-      type: String, // Example: "45 minutes"
-      required: true,
-    },
+
     code: { type: String, unique: true },
 
     attendees: {
