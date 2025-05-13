@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const attendeeSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
+  location_name: { type: String, required: true },
   matricNumber: { type: String, required: true },
   email: { type: String },
   timestamp: { type: Date, default: Date.now },
